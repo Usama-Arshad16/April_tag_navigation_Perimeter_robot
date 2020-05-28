@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="multimaster" default="false"/>
+
+  <arg name="robot_namespace" default="/"/>
+
+  <arg name="x" default="10.5"/>
+  <arg name="y" default="-7.0"/>
+  <arg name="z" default="0.292645"/>
+  <arg name="yaw" default="0.0"/>
+
+
+  <group ns="$(arg robot_namespace)">
+
+    <group if="$(arg multimaster)">
+      <include file="$(find perimeter)/launch/display.launch" >
+        <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+      </include>
+        
+      <include file="$(find multimaster_launch)/launch/multimaster_gazebo_robot.launch">
+        <arg name="gazebo_interface" value="$(find perimeter)/config/gazebo_interface.yaml" />
+        <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+      </include>
+
+      <!-- For multimaster bringup, need to load the controller config -->
+      <rosparam command="load" file="$(find perimeter)/config/control.yaml" />
+    </group>
+
+    <!-- For single master bringup, run robot control on the gazebo master -->
+    <!-- Note that perimeter/description.launch is already included in perimeter/control.launch. -->
+    <group unless="$(arg multimaster)">
+      <include file="$(find perimeter)/launch/control.launch">
+        <arg name="multimaster" value="$(arg multimaster)"/>
+      </include>
+    </group>
+
+
+
+    <!-- Spawn robot in gazebo -->
+    <node name="spawn_husky_model" pkg="gazebo_ros" type="spawn_model"
+        args="-x $(arg x)
+              -y $(arg y)
+              -z $(arg z)
+              -Y $(arg yaw)
+              -unpause
+              -urdf
+              -param robot_description
+              -model $(arg robot_namespace)" />
+
+  </group>
+
+</launch>

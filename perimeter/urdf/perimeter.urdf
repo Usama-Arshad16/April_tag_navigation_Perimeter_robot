@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="perimeter">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0.2"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0.2"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/base_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.2"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/base_link.dae" />
+        <!--box size="1.32116 0.762207 0.51628 " /-->
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="front_right">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/right_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.457 0.31 0.217"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <link
+    name="front_left">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/left_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.457 -0.312 0.217"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="middle_right">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/right_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_right_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.31 0.19796"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="middle_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="middle_left">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/left_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_left_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.312 0.19796"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="middle_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="back_right">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/right_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_joint"
+    type="continuous">
+    <origin
+      xyz="0.457 0.31 0.217"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="back_left">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/left_tyre.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.57 1.57" />
+      <geometry>
+	  <cylinder length="0.156978" radius="0.1933135"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_joint"
+    type="continuous">
+    <origin
+      xyz="0.457 -0.312 0.217"
+      rpy="0 0 0"  />
+    <parent
+      link="base_link" />
+    <child
+      link="back_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_bar">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/right_bar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/right_bar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_bar_to_base_link"
+    type="fixed">
+    <origin
+      xyz="0.32 0.191 0.55"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_bar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_bar">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/left_bar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/left_bar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_bar_to_base_link"
+    type="fixed">
+    <origin
+      xyz="0.34  -0.2 0.55"
+      rpy="0 0 3.14"  />
+    <parent
+      link="base_link" />
+    <child
+      link="left_bar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="turret_base">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turret_base_to_left_bar"
+    type="fixed">
+    <origin
+      xyz="0.0721233224999401 -0.265017680995475 0.0126999999999999"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="left_bar" />
+    <child
+      link="turret_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="turret">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.2" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turret_joint"
+    type="fixed">
+    <origin
+      xyz="-0.0688975000000001 -0.00975178571428559 0.262110127691648"
+      rpy="0 0 1.93006449817936" />
+    <parent
+      link="turret_base" />
+    <child
+      link="turret" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+<link
+    name="turret_cam_1">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.2" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 1.57" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_cam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_cam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turret_cam_1_joint"
+    type="continuous">
+    <origin
+      xyz="0.05 0 0.052"
+      rpy="0 1.57 0" />
+    <parent
+      link="turret" />
+    <child
+      link="turret_cam_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+<link
+    name="turret_cam_2">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.2" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 1.57" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_cam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/turret_cam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turret_cam_2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.05 0 0.052"
+      rpy="0 -1.57 0" />
+    <parent
+      link="turret" />
+    <child
+      link="turret_cam_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <link
+    name="antena">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/antena.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+          <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="antena_joint"
+    type="fixed">
+    <origin
+      xyz="-0.44 0.025 1.164"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="antena" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="front_fish_eye">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/fish_eye.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+          <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_fish_eye_joint"
+    type="fixed">
+    <origin
+      xyz="0.66 -0.01 .64"
+      rpy="3.40339 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_fish_eye" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+    <joint name="front_fish_eye_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="front_fish_eye" />
+      <child link="front_fish_eye_optical_frame"/>
+    </joint>
+  
+    <link name="front_fish_eye_optical_frame"/>
+    
+    <gazebo reference="front_fish_eye">
+      <sensor type="camera" name="front_fish_eye_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="front_fish_eye_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>front_fish_eye</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>front_fish_eye_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <link
+    name="front_435">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+          <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_435_joint"
+    type="fixed">
+    <origin
+      xyz="0.66 -0.03 0.563"
+      rpy="1.8326 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_435" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="front_435_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="front_435" />
+      <child link="front_435_optical_frame"/>
+    </joint>
+  
+    <link name="front_435_optical_frame"/>
+    
+    <gazebo reference="front_435">
+      <sensor type="camera" name="front_435_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="front_435_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>front_435</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>front_435_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+  
+     <link
+    name="computer">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="4" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/computer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+          <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="computer_joint"
+    type="fixed">
+    <origin
+      xyz="-0.31 -0.01 0.55"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="computer" />
+    <axis
+      xyz="0 0 0" />
+  </joint> 
+
+     <link
+    name="u_shade">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/u_shade.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/u_shade.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="u_shade_joint"
+    type="fixed">
+    <origin
+      xyz="-0.124 0.015 1.16"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="u_shade" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    
+
+     <link
+    name="up_front_fish_eye">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/fish_eye.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/fish_eye.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_front_fish_eye_joint"
+    type="fixed">
+    <origin
+      xyz="-0.1 0.03 1.1"
+      rpy="0 0 -1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_front_fish_eye" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_front_fish_eye_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_front_fish_eye" />
+      <child link="up_front_fish_eye_optical_frame"/>
+    </joint>
+  
+    <link name="up_front_fish_eye_optical_frame"/>
+    
+    <gazebo reference="up_front_fish_eye">
+      <sensor type="camera" name="up_front_fish_eye_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_front_fish_eye_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_front_fish_eye</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_front_fish_eye_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+     <link
+    name="up_front_d435">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_front_d435_joint"
+    type="fixed">
+    <origin
+      xyz="-0.1 0.05 1.08"
+      rpy="-1.57 0 -1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_front_d435" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_front_d435_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_front_d435" />
+      <child link="up_front_d435_optical_frame"/>
+    </joint>
+  
+    <link name="up_front_d435_optical_frame"/>
+    
+    <gazebo reference="up_front_d435">
+      <sensor type="camera" name="up_front_d435_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_front_d435_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_front_d435</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_front_d435_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+     <link
+    name="up_front_T265">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/T265.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/T265.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_front_T265_joint"
+    type="fixed">
+    <origin
+      xyz="-0.1 0.05 1.03"
+      rpy="-1.57 0 -1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_front_T265" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_front_T265_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_front_T265" />
+      <child link="up_front_T265_optical_frame"/>
+    </joint>
+  
+    <link name="up_front_T265_optical_frame"/>
+    
+    <gazebo reference="up_front_T265">
+      <sensor type="camera" name="up_front_T265_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_front_T265_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_front_T265</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_front_T265_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+     <link
+    name="up_right_d435">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_right_d435_joint"
+    type="fixed">
+    <origin
+      xyz="-0.175 .303 0.94"
+      rpy="-1.57 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_right_d435" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_right_d435_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_right_d435" />
+      <child link="up_right_d435_optical_frame"/>
+    </joint>
+  
+    <link name="up_right_d435_optical_frame"/>
+    
+    <gazebo reference="up_right_d435">
+      <sensor type="camera" name="up_right_d435_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_right_d435_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_right_d435</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_right_d435_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+     <link
+    name="up_left_d435">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_left_d435_joint"
+    type="fixed">
+    <origin
+      xyz="-0.175 -0.305 0.915"
+      rpy="1.57 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_left_d435" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_left_d435_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_left_d435" />
+      <child link="up_left_d435_optical_frame"/>
+    </joint>
+  
+    <link name="up_left_d435_optical_frame"/>
+    
+    <gazebo reference="up_left_d435">
+      <sensor type="camera" name="up_left_d435_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_left_d435_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_left_d435</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_left_d435_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+<link
+    name="up_back_fish_eye">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/fish_eye.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/fish_eye.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_back_fish_eye_joint"
+    type="fixed">
+    <origin
+      xyz="-0.155 -0.03 1.07"
+      rpy="-0.261799 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_back_fish_eye" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_back_fish_eye_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_back_fish_eye" />
+      <child link="up_back_fish_eye_optical_frame"/>
+    </joint>
+  
+    <link name="up_back_fish_eye_optical_frame"/>
+    
+    <gazebo reference="up_back_fish_eye">
+      <sensor type="camera" name="up_back_fish_eye_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="front_cam_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_back_fish_eye</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_back_fish_eye_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+     <link
+    name="up_back_d435">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/D435.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="up_back_d435_joint"
+    type="fixed">
+    <origin
+      xyz="-0.155 -0.05 1.05"
+      rpy="-1.8326 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="up_back_d435" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <joint name="up_back_d435_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570795 0.0 -1.570795" />
+      <parent link="up_back_d435" />
+      <child link="up_back_d435_optical_frame"/>
+    </joint>
+  
+    <link name="up_back_d435_optical_frame"/>
+    
+    <gazebo reference="up_back_d435">
+      <sensor type="camera" name="up_back_d435_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>1.570795</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>740</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="up_back_d435_camera_controller" filename="libgazebo_ros_camera.so">
+          <cameraName>up_back_d435</cameraName>
+          <imageTopicName>camera/image</imageTopicName>
+          <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+          <frameName>up_back_d435_optical_frame</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+     <link
+    name="laser">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/rplidar.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://perimeter/meshes/rplidar.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_base"
+    type="fixed">
+    <origin
+      xyz="-0.12 0 1.164"
+      rpy="0 0 1.57" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="laser">
+    <sensor type="ray" name="lds_lfcd_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>30.0</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+ 
+
+  <gazebo reference="front_right">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="front_left">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="middle_right">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="middle_left">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="back_right">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="back_left">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="antena">
+ <material>Gazebo/PioneerBody</material>
+</gazebo>
+
+  <gazebo reference="lidar">
+ <material>Gazebo/Blue</material>
+</gazebo>
+
+  <gazebo reference="left_bar">
+ <material>Gazebo/Indigo</material>
+</gazebo>
+
+  <gazebo reference="right_bar">
+ <material>Gazebo/Indigo</material>
+</gazebo>
+
+  <gazebo reference="base_link">
+ <material>Gazebo/Green</material>
+</gazebo>
+
+  <gazebo reference="turret_base">
+ <material>Gazebo/Purple</material>
+</gazebo>
+
+  <gazebo reference="turret">
+ <material>Gazebo/Turquoise</material>
+</gazebo>
+
+  <gazebo reference="turret">
+ <material>Gazebo/Turquoise</material>
+</gazebo>
+
+  <gazebo reference="up_front_T265">
+ <material>Gazebo/Grey</material>
+</gazebo>
+
+  <gazebo reference="up_back_d435">
+ <material>Gazebo/Red</material>
+</gazebo>
+
+  <gazebo reference="up_front_d435">
+ <material>Gazebo/Red</material>
+</gazebo>
+
+  <gazebo reference="up_right_d435">
+ <material>Gazebo/Red</material>
+</gazebo>
+
+  <gazebo reference="up_left_d435">
+ <material>Gazebo/Red</material>
+</gazebo>
+
+  <gazebo reference="front_435">
+ <material>Gazebo/Red</material>
+</gazebo>
+
+  <gazebo reference="front_fish_eye">
+ <material>Gazebo/DarkYellow</material>
+</gazebo>
+
+  <gazebo reference="up_back_fish_eye">
+ <material>Gazebo/DarkYellow</material>
+</gazebo>
+
+  <gazebo reference="up_front_fish_eye">
+ <material>Gazebo/DarkYellow</material>
+</gazebo>
+
+  <gazebo reference="u_shade">
+ <material>Gazebo/White</material>
+</gazebo>
+
+  <gazebo reference="computer">
+ <material>Gazebo/Gold</material>
+</gazebo>
+
+  <gazebo reference="laser">
+ <material>Gazebo/Blue</material>
+</gazebo>
+
+    <transmission name="front_right_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="front_right_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="front_right_act">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="front_left_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="front_left_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="front_left_act">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="back_left_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="back_left_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="back_left_act">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="back_right_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="back_right_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="back_right_act">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="middle_left_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="middle_left_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="middle_left_act">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="middle_right_t" type="SimpleTransmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="middle_right_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="middle_right_act" type="SimpleTransmission">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
+
+      <updateRate>40</updateRate>
+      <bodyName>base_link</bodyName>
+      <frameId>base_link</frameId>
+      <topicName>navsat/fix</topicName>
+      <velocityTopicName>navsat/vel</velocityTopicName>
+      <referenceLatitude>49.9</referenceLatitude>
+      <referenceLongitude>8.9</referenceLongitude>
+      <referenceHeading>0</referenceHeading>
+      <referenceAltitude>0</referenceAltitude>
+      <drift>0.0001 0.0001 0.0001</drift>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>imu/data</topicName>
+      <accelDrift>0.005 0.005 0.005</accelDrift>
+      <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+      <rateDrift>0.005 0.005 0.005 </rateDrift>
+      <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+      <headingDrift>0.005</headingDrift>
+      <headingGaussianNoise>0.005</headingGaussianNoise>
+    </plugin>
+  </gazebo>
+
+</robot>

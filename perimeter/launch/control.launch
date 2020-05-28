@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="multimaster" default="$(optenv ROBOT_MULTIMASTER false)"/>
+
+  <include file="$(find multimaster_launch)/launch/multimaster_robot.launch" if="$(arg multimaster)">
+    <arg name="gazebo_interface" value="$(find perimeter)/config/gazebo_interface.yaml" />
+    <arg name="public_interface" value="$(find perimeter)/config/public_interface.yaml" />
+
+  </include>
+
+  <!-- Load robot description -->
+  <include file="$(find perimeter)/launch/display.launch" >
+  </include>
+
+  <!-- Load controller configuration -->
+  <rosparam command="load" file="$(find perimeter)/config/control.yaml" />
+
+  <!-- Spawn controllers -->
+  <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+        args="perimeter_joint_publisher perimeter_velocity_controller"/>
+
+  <!-- Start EKF for localization -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find perimeter)/config/localization.yaml" />
+  </node>
+
+  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam command="load" file="$(find perimeter)/config/twist_mux.yaml" />
+    <remap from="cmd_vel_out" to="perimeter_velocity_controller/cmd_vel"/>
+  </node>
+
+
+</launch>

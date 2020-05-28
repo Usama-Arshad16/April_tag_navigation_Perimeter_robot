@@ -1,0 +1,10 @@
+<launch>
+  <arg
+    name="model" />
+  <arg
+    name="gui"
+    default="True" />
+  <param
+    name="robot_description"
+    textfile="$(find perimeter)/urdf/perimeter.urdf" />
+</launch>
