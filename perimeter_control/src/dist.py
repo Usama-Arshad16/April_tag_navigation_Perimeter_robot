@@ -5,7 +5,6 @@ import sys, time, math
 from sensor_msgs.msg import Image
 import numpy as np
 
-
 marker_size  = 50 #- [cm]
 
 
@@ -14,16 +13,9 @@ def main(msg):
 
     #--- Get the camera calibration path
     calib_path  = ""
-    camera_matrix   = np.loadtxt("/home/jhala/catkin_ws/src/perimeter_robot/perimeter_control/src/cameraMatrix.txt", delimiter=',')
-    camera_distortion   = np.loadtxt('/home/jhala/catkin_ws/src/perimeter_robot/perimeter_control/src/cameraDistortion.txt', delimiter=',')
+    camera_matrix   = np.loadtxt("/home/markhoor/catkin_ws/src/perimeter_robot/perimeter_control/src/cameraMatrix.txt", delimiter=',')
+    camera_distortion   = np.loadtxt('/home/markhoor/catkin_ws/src/perimeter_robot/perimeter_control/src/cameraDistortion.txt', delimiter=',')
 
-
-
-    #--- 180 deg rotation matrix around the x axis
-    R_flip  = np.zeros((3,3), dtype=np.float32)
-    R_flip[0,0] = 1.0
-    R_flip[1,1] =-1.0
-    R_flip[2,2] =-1.0
 
     #--- Define the aruco dictionary
     aruco_dict  = aruco.getPredefinedDictionary(aruco.DICT_ARUCO_ORIGINAL)
@@ -56,7 +48,7 @@ def main(msg):
     if ids is not None:
 	print "Row = " + str(ids[0])
 
-    cv2.imshow('bottom_camera', frame)
+    cv2.imshow('right_camera', frame)
 
     #--- use 'q' to quit
     key = cv2.waitKey(1) & 0xFF
@@ -64,13 +56,12 @@ def main(msg):
         cv2.destroyAllWindows()
 
 def land():
-	global cmd_vel_pub, pub, pub
+	global cmd_vel_pub, pub
 	rospy.init_node('landing')
-	image_sub = rospy.Subscriber('/front_cam/camera/image', Image, main)
-	
+	image_sub = rospy.Subscriber('/up_left_d435/camera/image', Image, main)
 
 	
-
+	
 if __name__ == '__main__':
 		cv2.destroyAllWindows()
 		land()

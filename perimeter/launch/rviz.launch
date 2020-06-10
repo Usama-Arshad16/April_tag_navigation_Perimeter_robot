@@ -22,5 +22,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find perimeter/rviz/robot.rviz" />
+    args="-d $(find perimeter)/r.rviz" />
 </launch>
